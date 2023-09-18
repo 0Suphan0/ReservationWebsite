@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class About
+    public class Guide
     {
-        public int AboutId { get; set; }
-        public string Title { get; set; }
+        public int GuideId { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
-        public string Image1 { get; set; }
-        public string Title2 { get; set; }
-        public string Description2 { get; set; }
-
+        public string Image { get; set; }
+        public string TwitterUrl { get; set; }
+        public string InstUrl { get; set; }
         public bool Status { get; set; }
+
+
     }
 }
