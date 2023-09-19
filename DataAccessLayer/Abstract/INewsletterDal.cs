@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface INewslatterDal : IGenericDal<Newsletter>
+    public interface INewsletterDal : IGenericDal<Newsletter>
     {
     }
 }

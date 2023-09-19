@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfNewsletterDal : GenericRepository<Newsletter>, INewslatterDal
+    public class EfNewsletterDal : GenericRepository<Newsletter>, INewsletterDal
     {
     }
 }
