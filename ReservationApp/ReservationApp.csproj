@@ -29,4 +29,12 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\Components\_PopularDestinationPartial\Default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\_PopularDestinationPartial\Default.cshtml" />
+  </ItemGroup>
+
 </Project>
