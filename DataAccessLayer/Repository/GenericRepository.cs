@@ -12,29 +12,36 @@ namespace DataAccessLayer.Repository
     {
         public void Insert(T item)
         {
-            var context = new Context();
+            using var context = new Context();
             context.Add(item);
             context.SaveChanges();
         }
 
         public void Delete(T item)
         {
-            var context = new Context();
+            using var context = new Context();
             context.Remove(item);
             context.SaveChanges();
         }
 
         public void Update(T item)
         {
-            var context = new Context();
+            using var context = new Context();
             context.Update(item);
             context.SaveChanges();
         }
 
         public List<T> GetAll()
         {
-            var context = new Context();
+            using var context = new Context();
             return context.Set<T>().ToList();
+        }
+
+        public T GetById(int id)
+        {
+           using var context = new Context();
+            return context.Set<T>().Find(id);
+            
         }
     }
 }
