@@ -18,6 +18,7 @@ namespace ReservationApp.Controllers
         [HttpGet]
         public IActionResult DestinationDetails(int id)
         {
+            ViewBag.i=id;
             var value = destinationManager.GetById(id);
             return View(value);
         }
