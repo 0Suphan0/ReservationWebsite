@@ -92,11 +92,16 @@ Author URL: http://w3layouts.com
                         <div class="form-input">
                             <label> Şifrenizi Onaylayın</label>
                             <input type="password" asp-for="ConfirmPassword"   />
-							<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                        </div>
+						
+                        <div class="text-danger" asp-validation-summary="ModelOnly">
+                            
 
                         </div>
 
-						<label class="container">
+                        <label class="container">
                             <a href="#">Şartları kabul ediyorum.</a>
 							<input type="checkbox">
 							<span class="checkmark"></span>
