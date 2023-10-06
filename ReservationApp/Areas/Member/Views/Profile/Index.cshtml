@@ -1,0 +1,33 @@
+﻿@model ReservationApp.Areas.Member.Models.UserEditViewModel
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1> Profil düzenleme sayfası</h1>
+
+<form method="post">
+
+    @Html.Label("Adınız")
+    <input type="text" asp-for="name" class="form-control"/>
+    <br />
+
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="lastname" class="form-control" />
+    <br />
+
+    @Html.Label("Mail adresiniz")
+    <input type="text" asp-for="mail" class="form-control" />
+    <br />
+
+    @Html.Label("Şifreniz")
+    <input type="text" asp-for="password" class="form-control" />
+    <br />
+
+    @Html.Label("Şifreniz tekrar")
+    <input type="text" asp-for="confirmpassword" class="form-control" />
+    <br />
+
+    @Html.Label("Telefon Numarası")
+    <input type="text" asp-for="phonenumber" class="form-control" />
+
+</form>
