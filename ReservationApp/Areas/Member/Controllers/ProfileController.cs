@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ReservationApp.Areas.Member.Models;
+using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ReservationApp.Areas.Member.Controllers
@@ -31,5 +33,32 @@ namespace ReservationApp.Areas.Member.Controllers
 			return View(userEditViewModel);
 
 		}
+
+		[HttpPost]
+		public async Task<IActionResult> Index(UserEditViewModel userEditViewModel)
+		{
+			var user = await userManager.FindByNameAsync(User.Identity.Name);
+
+			if (userEditViewModel.Image != null)
+			{
+				var resource = Directory.GetCurrentDirectory();
+				var extension = Path.GetExtension(userEditViewModel.Image.FileName);
+				var imageName = Guid.NewGuid() + extension;
+				var saveLocation=resource + "/wwwroot/userimages/"+ imageName;
+				var stream = new FileStream(saveLocation, FileMode.Create);
+				await userEditViewModel.Image.CopyToAsync(stream);
+                user.ImageUrl = "/userimages/" + imageName;
+            }
+			user.Name = userEditViewModel.name;
+			user.Surname = userEditViewModel.lastname;
+			user.PasswordHash = userManager.PasswordHasher.HashPassword(user, userEditViewModel.password);
+			var result=await userManager.UpdateAsync(user);
+			if(result.Succeeded)
+			{
+				return RedirectToAction("SignIn", "Login");
+			}
+			return View();
+		}
+
 	}
 }

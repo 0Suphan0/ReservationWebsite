@@ -1,4 +1,6 @@
-﻿namespace ReservationApp.Areas.Member.Models
+﻿using Microsoft.AspNetCore.Http;
+
+namespace ReservationApp.Areas.Member.Models
 {
     public class UserEditViewModel
     {
@@ -9,6 +11,7 @@
         public string phonenumber { get; set; }
         public string mail { get; set; }
         public string imageurl { get; set; }
+        public IFormFile Image { get; set; }
 
     }
 }
